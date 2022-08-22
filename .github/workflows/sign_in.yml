@@ -35,7 +35,7 @@ jobs:
   
     - name: Make config
       run: |
-        echo '${{ secrets.CONFIG }}' > mihoyo/config/config.json
+        python makeconfig.py "${{ secrets.COOKIE }}"
         echo '${{ secrets.PUSH }}' > mihoyo/config/push.ini
         
     - name: Run SignIn
