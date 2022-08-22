@@ -26,7 +26,7 @@ jobs:
     - name: Clone source
       run: |
         git clone https://github.com/Womsxd/AutoMihoyoBBS.git mihoyo
-        cd mihiyo
+        cd mihoyo
 
     - name: Install dependencies
       run: |
