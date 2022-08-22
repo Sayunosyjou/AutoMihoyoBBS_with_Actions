@@ -22,4 +22,4 @@ def MakeConfigFile():
 
 
 if __name__ == '__main__':
-    MakeConfig()
+    MakeConfigFile()
