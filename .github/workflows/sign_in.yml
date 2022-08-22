@@ -26,19 +26,18 @@ jobs:
     - name: Clone source
       run: |
         git clone https://github.com/Womsxd/AutoMihoyoBBS.git mihoyo
-        cd mihoyo/mihoyo
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        ls
+        cd mihoyo
         pip install -r requirements.txt
   
     - name: Make config
       run: |
-        echo "${{ secrets.CONFIG }}" > config/config.json
-        echo "${{ secrets.PUSH }}" > config/push.ini
+        echo "${{ secrets.CONFIG }}" > mihoyo/config/config.json
+        echo "${{ secrets.PUSH }}" > mihoyo/config/push.ini
         
     - name: Run SignIn
       run: |
-        python main.py
+        python mihoyo/main.py
