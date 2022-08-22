@@ -1,6 +1,6 @@
 {
     "enable": true,
-    "version": 8,
+    "version": 5,
     "account": {
       "cookie": "",
       "login_ticket": "",
@@ -11,7 +11,7 @@
       "enable": true,
       "checkin": true,
       "checkin_multi": true,
-      "checkin_multi_list": [2, 5],
+      "checkin_multi_list": [2, 5, 6],
       "read_posts": true,
       "like_posts": true,
       "un_like": true,
@@ -33,7 +33,7 @@
           "black_list": []
         },
         "genshin": {
-          "auto_checkin": false,
+          "auto_checkin": true,
           "black_list": []
         }
       },
