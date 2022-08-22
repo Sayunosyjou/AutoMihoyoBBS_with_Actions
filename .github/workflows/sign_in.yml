@@ -35,8 +35,8 @@ jobs:
   
     - name: Make config
       run: |
-        echo "${{ secrets.CONFIG }}" > mihoyo/config/config.json
-        echo "${{ secrets.PUSH }}" > mihoyo/config/push.ini
+        echo '${{ secrets.CONFIG }}' > mihoyo/config/config.json
+        echo '${{ secrets.PUSH }}' > mihoyo/config/push.ini
         
     - name: Run SignIn
       run: |
