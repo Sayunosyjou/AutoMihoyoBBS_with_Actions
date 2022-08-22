@@ -29,15 +29,15 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
+        python3 -m pip install --upgrade pip
         cd mihoyo
-        pip install -r requirements.txt
+        pip3 install -r requirements.txt
   
     - name: Make config
       run: |
-        python makeconfig.py "${{ secrets.COOKIE }}"
+        python3 makeconfig.py "${{ secrets.COOKIE }}"
         echo '${{ secrets.PUSH }}' > mihoyo/config/push.ini
         
     - name: Run SignIn
       run: |
-        python mihoyo/main.py
+        python3 mihoyo/main.py
