@@ -1,0 +1,26 @@
+{
+    "enable":true
+    "mihoyobbs":{
+        "enable":true,
+        "checkin":true,
+        "checkin_multi":true,
+        "checkin_multi_list":[
+            2,
+            5,
+            6
+        ],
+        "read_posts":true,
+        "like_posts":true,
+        "un_like":true,
+        "share_post":true
+    },
+    "games":{
+        "cn":{
+            "enable":true,
+            "genshin":{
+                "auto_checkin":true,
+                "black_list":[]
+            }
+        }
+    }
+}
