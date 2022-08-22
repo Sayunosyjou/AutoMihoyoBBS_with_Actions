@@ -26,11 +26,11 @@ jobs:
     - name: Clone source
       run: |
         git clone https://github.com/Womsxd/AutoMihoyoBBS.git mihoyo
+        cd mihoyo/mihoyo
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        cd mihoyo
         ls
         pip install -r requirements.txt
   
