@@ -11,7 +11,7 @@ import (
 )
 
 const DefaultConfigPath = "./DefaultExampleConfig.yaml"
-const AutoMihoyoBBSConfigPath = "./mihoyo.config/config.yaml"
+const AutoMihoyoBBSConfigPath = "./mihoyo/config/config.yaml"
 const UserConfigFilePath = "./data/config.automihoyobbs"
 const GitUserName = "github-actions"
 const GitUserEmail = "github-actions@github.com"
