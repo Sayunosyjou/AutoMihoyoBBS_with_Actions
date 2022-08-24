@@ -1,7 +1,7 @@
 ## AutoMihoyoBBS_with_Actions
 依托于Github Actions和[AutoMihoyoBBS](https://github.com/Womsxd/AutoMihoyoBBS)的每日签到
 ## 使用方法
-[Fork](https://github.com/ShanshanHY/AutoMihoyoBBS_with_Actions/fork)本项目
+[Fork](https://github.com/RebAltair/AutoMihoyoBBS_with_Actions/fork)本项目
 
 根据[原项目](https://github.com/Womsxd/AutoMihoyoBBS)编辑本项目的`DefaultExampleConfig.yaml`，但不要将你的Cookie填入 ***【千万不要在这里填写Cookie！】***
 
