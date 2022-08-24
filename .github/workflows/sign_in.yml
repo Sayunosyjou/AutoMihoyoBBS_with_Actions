@@ -32,12 +32,16 @@ jobs:
         python3 -m pip install --upgrade pip
         cd mihoyo
         pip3 install -r requirements.txt
-  
+
     - name: Make config
       run: |
-        python3 makeconfig.py "${{ secrets.COOKIE }}"
-        echo '${{ secrets.PUSH }}' > mihoyo/config/push.ini
-        
+        AutoMihoyoBBS_with_Actions "${{ secrets.COOKIE }}"
+        echo "[pushdeer]\napi_url=https://api2.pushdeer.com\ntoken=${{ secrets.PUSH }}" > mihoyo/config/push.ini
+
     - name: Run SignIn
       run: |
         python3 mihoyo/main.py
+
+    - name: Push User Data
+      run: |
+        AutoMihoyoBBS_with_Actions pushuserdata
