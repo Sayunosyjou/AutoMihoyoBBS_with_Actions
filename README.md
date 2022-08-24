@@ -1,4 +1,4 @@
-# AutoMihoyoBBS_with_Actions
+## AutoMihoyoBBS_with_Actions
 依托于Github Actions和[AutoMihoyoBBS](https://github.com/Womsxd/AutoMihoyoBBS)的每日签到
 ## 使用方法
 [Fork](https://github.com/ShanshanHY/AutoMihoyoBBS_with_Actions/fork)本项目
@@ -21,4 +21,5 @@
 ## 关于本项目的一些细节说明
 本项目使用GoLand编写，并且引入了一些第三方库包括但不限于[go-yaml](https://github.com/go-yaml/yaml)
 
-## 本项目使用MIT许可证进行分发
+## 许可证
+本项目使用[MIT](https://spdx.org/licenses/MIT)许可证进行分发
