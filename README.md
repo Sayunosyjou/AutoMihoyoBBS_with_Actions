@@ -3,11 +3,11 @@
 ## 使用方法
 [Fork](https://github.com/ShanshanHY/AutoMihoyoBBS_with_Actions/fork)本项目
 
-根据[原项目](https://github.com/Womsxd/AutoMihoyoBBS)编辑本项目的`config/config.json`，但不要将你的Cookie填入 ***【千万不要在这里填写Cookie！】***
+根据[原项目](https://github.com/Womsxd/AutoMihoyoBBS)编辑本项目的`DefaultExampleConfig.yaml`，但不要将你的Cookie填入 ***【千万不要在这里填写Cookie！】***
 
 点击`Settings`-`Secrets`-`Actions`，新建一个名为`COOKIE`的`Secret`并 ***在此处填写Cookie***
 
-再次新建一个名为`PUSH`的`Secret`，并将[这里](https://github.com/Womsxd/AutoMihoyoBBS/blob/master/config/push.ini.example)的内容复制进`Secret`并修改
+再次新建一个名为`PUSH`的`Secret`，并在此处填写您的PushDeer Key
 
 点击`Actions`并同意使用Workflow，点击`AutoMihoyoBBS_with_Actions`-`Run Workflow`检查是否运行正常
 
