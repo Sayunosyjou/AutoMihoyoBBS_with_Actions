@@ -73,7 +73,7 @@ func ParseConfig(YamlData string) (ConfigFileStruct, error) {
 
 func ParseCookie() map[string]string {
 	var CookieMap interface{}
-	var Cookie map[string]string
+	Cookie := make(map[string]string)
 
 	CookieJSON := os.Getenv("COOKIE")
 
