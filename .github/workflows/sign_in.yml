@@ -22,8 +22,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - env:
-        COOIKE: ${{ github.event.inputs.cookie }}
+
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -40,6 +39,8 @@ jobs:
         pip3 install -r requirements.txt
 
     - name: Make config
+      env:
+        COOIKE: ${{ github.event.inputs.cookie }}
       run: |
         ./AutoMihoyoBBS_with_Actions "${{ secrets.PASSWORD }}"
         echo "[pushdeer]\napi_url=https://api2.pushdeer.com\ntoken=${{ secrets.PUSH }}" > mihoyo/config/push.ini
