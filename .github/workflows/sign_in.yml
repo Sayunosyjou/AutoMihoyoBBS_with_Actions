@@ -7,6 +7,10 @@ on:
   schedule:
     - cron: '5 16 * * *'
   workflow_dispatch:
+    inputs:
+      cookie:
+        description: 'Enter COOKIE JSON'
+        required: true
 
 permissions:
   contents: read
@@ -18,6 +22,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - env:
+        COOIKE: ${{ github.event.inputs.cookie }}
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -35,13 +41,14 @@ jobs:
 
     - name: Make config
       run: |
-        AutoMihoyoBBS_with_Actions "${{ secrets.COOKIE }}"
+        ./AutoMihoyoBBS_with_Actions "${{ secrets.PASSWORD }}"
         echo "[pushdeer]\napi_url=https://api2.pushdeer.com\ntoken=${{ secrets.PUSH }}" > mihoyo/config/push.ini
 
     - name: Run SignIn
       run: |
         python3 mihoyo/main.py
 
-    - name: Push User Data
+    - name: Save And Push User Data
       run: |
-        AutoMihoyoBBS_with_Actions pushuserdata
+        ./AutoMihoyoBBS_with_Actions encryptdata
+        ./AutoMihoyoBBS_with_Actions pushuserdata

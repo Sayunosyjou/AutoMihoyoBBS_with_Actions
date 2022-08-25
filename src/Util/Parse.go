@@ -1,6 +1,11 @@
 package Util
 
-import "gopkg.in/yaml.v3"
+import (
+	"encoding/json"
+	"gopkg.in/yaml.v3"
+	"log"
+	"os"
+)
 
 type ConfigFileStruct struct {
 	Enable    bool
@@ -55,7 +60,7 @@ type games struct {
 	}
 }
 
-func Parse(YamlData string) (ConfigFileStruct, error) {
+func ParseConfig(YamlData string) (ConfigFileStruct, error) {
 	var configFileStruct ConfigFileStruct
 
 	err := yaml.Unmarshal([]byte(YamlData), &configFileStruct)
@@ -64,4 +69,26 @@ func Parse(YamlData string) (ConfigFileStruct, error) {
 	}
 
 	return configFileStruct, nil
+}
+
+func ParseCookie() map[string]string {
+	var CookieMap interface{}
+	var Cookie map[string]string
+
+	CookieJSON := os.Getenv("COOKIE")
+
+	err := json.Unmarshal([]byte(CookieJSON), &CookieMap)
+	if err != nil {
+		log.Fatal("Parse Cookie Json Error, ", err)
+	}
+
+	m := CookieMap.(map[string]interface{})
+	for k, v := range m {
+		switch vv := v.(type) {
+		case string:
+			Cookie[k] = vv
+		}
+	}
+
+	return Cookie
 }

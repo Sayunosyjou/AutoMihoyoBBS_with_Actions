@@ -5,11 +5,19 @@
 
 根据[原项目](https://github.com/Womsxd/AutoMihoyoBBS)编辑本项目的`DefaultExampleConfig.yaml`，但不要将你的Cookie填入 ***【千万不要在这里填写Cookie！】***
 
-点击`Settings`-`Secrets`-`Actions`，新建一个名为`COOKIE`的`Secret`并 ***在此处填写Cookie***
+点击`Settings`-`Secrets`-`Actions`，新建一个名为`PASSWORD`的`Secret`并 ***在此处填写用户数据加密密码***
 
 再次新建一个名为`PUSH`的`Secret`，并在此处填写您的PushDeer Key
 
-点击`Actions`并同意使用Workflow，点击`AutoMihoyoBBS_with_Actions`-`Run Workflow`检查是否运行正常
+点击`Actions`并同意使用Workflow，点击`AutoMihoyoBBS_with_Actions`-`Run Workflow`并且在输入框中填入制定格式的json检查是否运行正常
+### json示例
+其中的`RebAltair`为cookie的名称，他将会用于用户数据文件的命名
+```
+{
+    "RebAltair": "${COOKIE}"
+    ...
+}
+```
 
 ## 关于本项目的声明
 本项目为个人制作，每次运行均为Fork仓库[Womsxd/AutoMihoyoBBS](https://github.com/Womsxd/AutoMihoyoBBS)并生成配置文件
@@ -22,4 +30,4 @@
 本项目使用GoLand编写，并且引入了一些第三方库包括但不限于[go-yaml](https://github.com/go-yaml/yaml)
 
 ## 许可证
-本项目使用[MIT](https://spdx.org/licenses/MIT)许可证进行分发
+本项目使用[MIT]000(https://spdx.org/licenses/MIT)许可证进行分发
