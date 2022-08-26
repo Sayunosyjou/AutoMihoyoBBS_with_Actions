@@ -11,8 +11,8 @@
 3. 点击`Settings`-`Secrets`-`Actions`，新建一个名为`PASSWORD`的`Secret`并**输入一个8位以上的密码**
 4. 新建一个名为`NAME`的`Secret`，并填入任意信息作为配置文件名称
 5. 新建一个名为`COOKIE`的`Secret`，并填入你的`Cookie信息`
-6. 点击`Actions`并同意使用Workflow，点击`Add Account`-`Run Workflow`，用于生成配置文件
-7. 点击`Sign In`-`Run Workflow`检查是否运行正常
+6. 点击`Actions`并同意使用Workflow，点击`添加账号`-`Run Workflow`，用于生成配置文件
+7. 点击`签到`-`Run Workflow`检查是否运行正常
 
 ## 进阶项目
 ### 多账号
