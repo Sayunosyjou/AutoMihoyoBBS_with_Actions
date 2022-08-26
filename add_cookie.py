@@ -44,10 +44,9 @@ def update_cookie():
     else :
         try:
             os.makedirs('config/user')
-        except:
-            conf
-        with open(f"config/user/{name}", mode='wb') as f:
-            f.write(encryption(conf['account']))
+        finally:
+            with open(f"config/user/{name}", mode='wb') as f:
+                f.write(encryption(conf['account']))
     print('配置保存成功！')
 
 def encryption(text):

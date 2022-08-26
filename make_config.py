@@ -12,11 +12,19 @@ def decrypt(text):
     mode = AES.MODE_CBC
     cryptos = AES.new(passwd, mode, iv)
     text = cryptos.decrypt(text)
-    return bytes.decode(text).rstrip('\0')
+    try:
+        decode = bytes.decode(text).rstrip('\0')
+        return decode
+    except:
+        return False
 
 def makeconfig(filename, confname):
     with open(f"config/user/{filename}", mode='rb') as f:
         cookie = decrypt(f.read())
+    if not cookie:
+        print(f'发现密码错误的配置文件{filename}，已经重命名为{filename}.bak，下次运行将会自动删除')
+        os.rename(f"config/user/{filename}", f"config/user/{filename}.bak")
+        return
     with open("mihoyo/config/config.yaml.example", mode='r', encoding='utf-8') as f:
         conf = yaml.load(f.read(), Loader=yaml.FullLoader)
     with open("config/config.yaml", mode='r', encoding='utf-8') as f:
@@ -51,6 +59,26 @@ def get_encrypted():
         with open(f"run.sh", mode='w', encoding='utf-8') as f:
             f.write('python3 mihoyo/main.py')
 
+def load_finish():
+    list = os.listdir('mihoyo/config')
+    num = -1
+    for i in list:
+        if '.yaml' in i:
+            num += 1
+    if num > 0:
+        print(f'配置加载完成！共加载了{num}个配置文件')
+    else:
+        print(f'配置加载完成！未发现可用的配置文件！')
+        exit(1)
+
+def del_useless():
+    list = os.listdir('config/user')
+    for i in list:
+        print(i)
+        if 'bak' in i:
+            print(i)
+            os.remove(f'config/user/{i}')
+
 def add_to_16(text):
     if len(text.encode('utf-8')) % 16:
         add = 16 - (len(text.encode('utf-8')) % 16)
@@ -64,4 +92,8 @@ def add_to_16(text):
 passwd = add_to_16(os.environ["PASSWORD"])
 
 if __name__ == '__main__':
-    get_encrypted()
+    try:
+        del_useless()
+    finally:
+        get_encrypted()
+        load_finish()
