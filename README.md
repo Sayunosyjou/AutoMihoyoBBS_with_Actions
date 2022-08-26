@@ -30,4 +30,4 @@
 - 验证码问题非本项目bug，请自行寻找解决方法
 
 ## 关于其他语言版本声明
-该项目具有golang版本实习由Sayunosyjou(RebAltair)进行维护，本分支为Python版本由ShanshanHY进行维护
+该项目具有GoLang版本实现由Sayunosyjou(RebAltair)进行维护，本分支为Python版本由ShanshanHY进行维护
