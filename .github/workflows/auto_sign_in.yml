@@ -34,7 +34,16 @@ jobs:
         PASSWORD:  ${{ secrets.PASSWORD }}
       run: |
         python3 make_config.py
-    
+
+    - name: Update User Info
+      if: always()
+      run: |  
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add config/user/
+        git commit -m "Update UserInfo"
+        git push
+
     - name: Make Push config
       env:
         PUSH:  ${{ secrets.PUSH }}
