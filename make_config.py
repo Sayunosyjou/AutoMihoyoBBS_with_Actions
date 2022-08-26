@@ -46,6 +46,7 @@ def dicMeg(dic1,dic2):
 
 def get_encrypted():
     files = os.listdir('config/user/')
+    files.remove('cache')
     print(f'发现了{len(files)}个配置文件')
     if len(files) == 0:
         print('请添加一个账号后再次运行！')
