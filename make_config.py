@@ -62,7 +62,6 @@ def get_encrypted():
 
 def load_finish():
     list = os.listdir('mihoyo/config')
-    list.remove('cache')
     num = -1
     for i in list:
         if '.yaml' in i:
