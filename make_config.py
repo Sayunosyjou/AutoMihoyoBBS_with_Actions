@@ -4,7 +4,7 @@
 
 import yaml 
 import os
-import sys
+import time
 from Crypto.Cipher import AES
 
 def decrypt(text):
@@ -78,6 +78,10 @@ def del_useless():
         if 'bak' in i:
             print(i)
             os.remove(f'config/user/{i}')
+    
+def update_runtime():
+    with open(f"config/user/cache", mode='w', encoding='utf-8') as f:
+            f.write(time.asctime( time.localtime(time.time()) ))
 
 def add_to_16(text):
     if len(text.encode('utf-8')) % 16:
@@ -92,6 +96,7 @@ def add_to_16(text):
 passwd = add_to_16(os.environ["PASSWORD"])
 
 if __name__ == '__main__':
+    update_runtime()
     try:
         del_useless()
     finally:
