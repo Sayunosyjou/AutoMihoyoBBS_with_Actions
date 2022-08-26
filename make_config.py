@@ -4,7 +4,7 @@
 
 import yaml 
 import os
-import sys
+import time
 from Crypto.Cipher import AES
 
 def decrypt(text):
@@ -46,6 +46,7 @@ def dicMeg(dic1,dic2):
 
 def get_encrypted():
     files = os.listdir('config/user/')
+    files.remove('cache')
     print(f'发现了{len(files)}个配置文件')
     if len(files) == 0:
         print('请添加一个账号后再次运行！')
@@ -78,6 +79,10 @@ def del_useless():
         if 'bak' in i:
             print(i)
             os.remove(f'config/user/{i}')
+    
+def update_runtime():
+    with open(f"config/user/cache", mode='w', encoding='utf-8') as f:
+            f.write(time.asctime( time.localtime(time.time()) ))
 
 def add_to_16(text):
     if len(text.encode('utf-8')) % 16:
@@ -92,6 +97,7 @@ def add_to_16(text):
 passwd = add_to_16(os.environ["PASSWORD"])
 
 if __name__ == '__main__':
+    update_runtime()
     try:
         del_useless()
     finally:
