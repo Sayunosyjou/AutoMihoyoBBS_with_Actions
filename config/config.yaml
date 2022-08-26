@@ -1,0 +1,36 @@
+enable: true
+games:
+  cn:
+    enable: true
+    genshin:
+      auto_checkin: true
+      black_list: []
+    hokai2:
+      auto_checkin: false
+      black_list: []
+    honkai3rd:
+      auto_checkin: false
+      black_list: []
+    tears_of_themis:
+      auto_checkin: false
+      black_list: []
+    useragent: Mozilla/5.0 (Linux; Android 12; Unspecified Device) AppleWebKit/537.36
+      (KHTML, like Gecko) Version/4.0 Chrome/103.0.5060.129 Mobile Safari/537.36
+  os:
+    cookie: ''
+    enable: false
+    genshin:
+      auto_checkin: false
+      black_list: []
+mihoyobbs:
+  cancel_like_posts: true
+  checkin: true
+  checkin_multi: true
+  checkin_multi_list:
+  - 2
+  - 5
+  enable: true
+  like_posts: true
+  read_posts: true
+  share_post: true
+version: 6

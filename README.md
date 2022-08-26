@@ -1,33 +1,30 @@
-## AutoMihoyoBBS_with_Actions
-依托于Github Actions和[AutoMihoyoBBS](https://github.com/Womsxd/AutoMihoyoBBS)的每日签到
+# AutoMihoyoBBS_with_Actions
+### 依托于Github Actions和[AutoMihoyoBBS](https://github.com/Womsxd/AutoMihoyoBBS)的每日签到
+
 ## 使用方法
-[Fork](https://github.com/ShanshanHY/AutoMihoyoBBS_with_Actions/fork)本项目
+1. [Fork](https://github.com/ShanshanHY/AutoMihoyoBBS_with_Actions/fork)本项目
+2. 根据[上游项目](https://github.com/Womsxd/AutoMihoyoBBS/blob/master/config/config.yaml.example)编辑本项目的`config/config.yaml`，但不要将你的Cookie填入 **【千万不要在这里填写Cookie！】**
+3. 点击`Settings`-`Secrets`-`Actions`，新建一个名为`PASSWORD`的`Secret`并**输入一个8位以上的密码**
+4. 新建一个名为`NAME`的`Secret`，并填入任意信息作为配置文件名称
+5. 新建一个名为`COOKIE`的`Secret`，并填入你的`Cookie信息`
+6. 点击`Actions`并同意使用Workflow，点击`Add Account`-`Run Workflow`，用于生成配置文件
+7. 点击`Sign In`-`Run Workflow`检查是否运行正常
 
-根据[原项目](https://github.com/Womsxd/AutoMihoyoBBS)编辑本项目的`DefaultExampleConfig.yaml`，但不要将你的Cookie填入 ***【千万不要在这里填写Cookie！】***
+## 进阶项目
+### 多账号
+- 本项目可支持多账号签到，可调用上游项目的多账号功能进行签到，只需要以不同名称重复添加账号即可
 
-点击`Settings`-`Secrets`-`Actions`，新建一个名为`PASSWORD`的`Secret`并 ***在此处填写用户数据加密密码***
+### 用户管理
+- 所有的用户信息均保存在`config/user`内保存，并以添加配置时的名称命名，可自由删除
+- 用户配置使用`PASSWORD`进行`AES加密`，具体过程请自行查看python脚本
+- 用户配置内仅存储了`cookie`，`stoken`用于登录，其他信息通过读取本仓库的`config/config.yaml`与上游仓库的[config/config.yaml.example](https://github.com/Womsxd/AutoMihoyoBBS/blob/master/config/config.yaml.example)进行生成
 
-再次新建一个名为`PUSH`的`Secret`，并在此处填写您的PushDeer Key
+### 推送相关
+- [点此查看](https://github.com/ShanshanHY/AutoMihoyoBBS_with_Actions/blob/run/PUSH.md)
 
-点击`Actions`并同意使用Workflow，点击`AutoMihoyoBBS_with_Actions`-`Run Workflow`并且在输入框中填入制定格式的json检查是否运行正常
-### json示例
-其中的`RebAltair`为cookie的名称，他将会用于用户数据文件的命名
-```
-{
-    "RebAltair": "${COOKIE}"
-    ...
-}
-```
-
-## 关于本项目的声明
-本项目为个人制作，每次运行均为Fork仓库[Womsxd/AutoMihoyoBBS](https://github.com/Womsxd/AutoMihoyoBBS)并生成配置文件
-
-上游仓库作者[不建议使用Actions运行](https://github.com/Womsxd/AutoMihoyoBBS#%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8-github-actions-%E8%BF%90%E8%A1%8C)，遇到问题请勿向上游仓库反馈！！！
-
-本项目仅通过CI生成配置文件，如因为[个人操作不当](https://github.com/ShanshanHY/AutoMihoyoBBS_with_Actions/#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)或其他原因导致Cookie泄露，本项目不承担任何责任！！！
-
-## 关于本项目的一些细节说明
-本项目使用GoLand编写，并且引入了一些第三方库包括但不限于[go-yaml](https://github.com/go-yaml/yaml)
-
-## 许可证
-本项目使用[MIT]000(https://spdx.org/licenses/MIT)许可证进行分发
+## 使用声明&注意事项
+- 本项目为个人制作，每次运行均为Fork仓库[Womsxd/AutoMihoyoBBS](https://github.com/Womsxd/AutoMihoyoBBS)并生成配置文件
+- 上游仓库作者[不建议使用Actions运行](https://github.com/Womsxd/AutoMihoyoBBS#%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8-github-actions-%E8%BF%90%E8%A1%8C)，遇到问题请勿向上游仓库反馈！！！
+- 本项目仅在workflow内使用python生成明文配置文件，如因为个人操作不当或其他原因导致Cookie泄露，本项目不承担任何责任！！！
+- 加密后的配置文件保存在公开仓库中，如果对账号安全性担忧，请将仓库设置成Private！
+- 验证码问题非本项目bug，请自行寻找解决方法

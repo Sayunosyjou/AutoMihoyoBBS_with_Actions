@@ -1,0 +1,48 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: 签到
+on:
+  schedule:
+    - cron: '20 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  sign-in:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.8"
+
+    - name: Clone source
+      run: |
+        git clone https://github.com/Womsxd/AutoMihoyoBBS.git mihoyo
+
+    - name: Install dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        pip3 install -r mihoyo/requirements.txt
+        pip3 install pycrypto
+        
+    - name: Make config
+      env:
+        PASSWORD:  ${{ secrets.PASSWORD }}
+      run: |
+        python3 make_config.py
+    
+    - name: Make Push config
+      env:
+        PUSH:  ${{ secrets.PUSH }}
+        PUSH_CONFIG:  ${{ secrets.PUSH_CONFIG }}
+      run: |
+        python3 make_push_conf.py
+
+    - name: Run SignIn
+      run: |
+        chmod +x run.sh
+        bash ./run.sh

@@ -1,0 +1,47 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: 添加账号
+
+on:
+  workflow_dispatch:
+
+jobs:
+  add-cookie:
+  
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.8"
+
+    - name: Clone source
+      run: |
+        git clone https://github.com/Womsxd/AutoMihoyoBBS.git mihoyo
+
+    - name: Install dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        pip3 install -r mihoyo/requirements.txt
+        pip3 install pycrypto
+  
+    - name: Add Cookie
+      env:
+          COOKIE: ${{ secrets.COOKIE }}
+          PASSWORD:  ${{ secrets.PASSWORD }}
+          NAME: ${{ secrets.NAME }}
+      run: |
+        python3 add_cookie.py
+
+    - name: Update User Info
+      run: |  
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add config/user/
+        git commit -m "Update UserInfo"
+        git push
+
+    
