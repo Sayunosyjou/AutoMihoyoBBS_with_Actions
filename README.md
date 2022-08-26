@@ -1,6 +1,10 @@
 # AutoMihoyoBBS_with_Actions
 ### 依托于Github Actions和[AutoMihoyoBBS](https://github.com/Womsxd/AutoMihoyoBBS)的每日签到
 
+## 项目分支说明
+- 该项目具有[GoLang](https://github.com/RebAltair/AutoMihoyoBBS_with_Actions/tree/Go)/Python两个版本，分别由[@Sayunosyjou(RebAltair)](https://github.com/RebAltair)/[Shan_shanHY](https://github.com/ShanshanHY)进行维护，当前分所在支为**Python**版
+- 两个版本的设置有所不同，使用前请查看对应的`README.md`
+
 ## 使用方法
 1. [Fork](https://github.com/ShanshanHY/AutoMihoyoBBS_with_Actions/fork)本项目
 2. 根据[上游项目](https://github.com/Womsxd/AutoMihoyoBBS/blob/master/config/config.yaml.example)编辑本项目的`config/config.yaml`，但不要将你的Cookie填入 **【千万不要在这里填写Cookie！】**
@@ -31,6 +35,3 @@
 
 ## 关于许可证
 本项目使用MIT许可证进行分发
-
-## 关于其他语言版本声明
-该项目具有GoLang版本实现由Sayunosyjou(RebAltair)进行维护，本分支为Python版本由ShanshanHY进行维护
