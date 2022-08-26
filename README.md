@@ -28,3 +28,6 @@
 - 本项目仅在workflow内使用python生成明文配置文件，如因为个人操作不当或其他原因导致Cookie泄露，本项目不承担任何责任！！！
 - 加密后的配置文件保存在公开仓库中，如果对账号安全性担忧，请将仓库设置成Private！
 - 验证码问题非本项目bug，请自行寻找解决方法
+
+## 关于其他语言版本声明
+该项目具有golang版本实习由Sayunosyjou(RebAltair)进行维护，本分支为Python版本由ShanshanHY进行维护
