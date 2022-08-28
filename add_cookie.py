@@ -42,11 +42,10 @@ def update_cookie():
     if conf['account']['cookie'] == 'CookieError':
         exit(1)
     else :
-        try:
+        if not os.path.exists('config/user'):
             os.makedirs('config/user')
-        finally:
-            with open(f"config/user/{name}", mode='wb') as f:
-                f.write(encryption(conf['account']))
+        with open(f"config/user/{name}", mode='wb') as f:
+            f.write(encryption(conf['account']))
     print('配置保存成功！')
 
 def encryption(text):
