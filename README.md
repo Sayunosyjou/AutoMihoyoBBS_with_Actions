@@ -24,7 +24,7 @@
 - 用户配置内仅存储了`cookie`，`stoken`用于登录，其他信息通过读取本仓库的`config/config.yaml`与上游仓库的[config/config.yaml.example](https://github.com/Womsxd/AutoMihoyoBBS/blob/master/config/config.yaml.example)进行生成
 
 ### 推送相关
-- [点此查看](https://github.com/ShanshanHY/AutoMihoyoBBS_with_Actions/blob/run/PUSH.md)
+- [点此查看](https://github.com/RebAltair/AutoMihoyoBBS_with_Actions/blob/python/PUSH.md)
 
 ## 使用声明&注意事项
 - 本项目为个人制作，每次运行均为Fork仓库[Womsxd/AutoMihoyoBBS](https://github.com/Womsxd/AutoMihoyoBBS)并生成配置文件
