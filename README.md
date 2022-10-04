@@ -30,4 +30,4 @@
 本项目使用GoLand编写，并且引入了一些第三方库包括但不限于[go-yaml](https://github.com/go-yaml/yaml)
 
 ## 许可证
-本项目使用[MIT]000(https://spdx.org/licenses/MIT)许可证进行分发
+本项目使用[MIT](https://spdx.org/licenses/MIT)许可证进行分发
